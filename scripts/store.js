@@ -1,3 +1,4 @@
+/* global Item, cuid */
 'use strict';
 
 const store = (function(){
@@ -34,6 +35,12 @@ const store = (function(){
   function findAndDelete(id){
     this.items.splice(findById(id),1);
   }
+  function toggleCheckedFilter() {
+    this.hideCheckedItems = !this.hideCheckedItems;
+  }
+  function setSearchTerm(newTerm) {
+    this.searchTerm = newTerm;
+  }
 
 
   return {
@@ -44,6 +51,8 @@ const store = (function(){
     findById,
     addItem,
     findAndUpdateName,
-    findAndDelete
+    findAndDelete,
+    toggleCheckedFilter,
+    setSearchTerm
   };
 }());
