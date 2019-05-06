@@ -19,12 +19,12 @@ const store = (function(){
   }
   function findAndToggleChecked(id){
     const item = this.findById(id);
-    !item.checked;
+    item.checked = !item.checked;
   }
   function findAndUpdateName(id, newName) {
     try {
       Item.validateName(newName);
-      const item = this.items.findById(id);
+      const item = this.findById(id);
       item.name = newName;
     }
     catch(e){
